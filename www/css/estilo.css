@@ -44,7 +44,7 @@ em,i{
     font-size: 12px;
 }
 .has-header {
-    top: 0px !important;
+    top: 20px !important;
 }
 .entrada {
     background-image: url("../img/login-fondo.png");

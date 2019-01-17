@@ -10,7 +10,7 @@
     <description>
         InsuTOOL es una aplicación diseñada para facilitar el manejo de la terapia insulínica.
     </description>
-    <author email="francisco.rubiales@euromedice.net" href="http://www.euromedice.net">
+    <author email="joan.munso@euromedice.net" href="http://www.euromedice.net">
         Euromedice
     </author>
     <content src="index.html" />
@@ -22,9 +22,8 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-navigation href="http://*/*" />
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <preference name="phonegap-version" value="cli-7.1.0" />
-    <preference name="windows-appx-target" value="uap" />
-    <preference name="windows-arch" value="arm" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="orientation" value="default" />
