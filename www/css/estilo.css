@@ -31,6 +31,18 @@ body {
     color:  #777777;
     
 }
+.bibliografia ul{
+    list-style:  decimal;
+    margin-left:  20px;
+    margin-right:  0px;
+    font-weight: 100;
+    
+}
+.bibliografia li{
+    margin-bottom: 10px;
+    text-align: justify;
+    font-weight: 100;
+}
 
 .clear {
     clear: both;
@@ -92,7 +104,7 @@ em,i{
 .reset_boton {
     color: #EF6481;
     margin-left: 100px;
-    margin-top: 40px;
+    margin-top: 30px;
     
 }
 .contenedor-logos {

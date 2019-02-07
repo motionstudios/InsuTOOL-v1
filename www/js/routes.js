@@ -69,6 +69,15 @@ angular.module('app.routes', [])
                             }
                         }
                     })
+                    .state('menu.bibliografia', {
+                        url: '/bibliografia',
+                        views: {
+                            'side-menu21': {
+                                templateUrl: 'templates/acerca/bibliografia.html'
+                                //controller: 'presentacionCtrl'
+                            }
+                        }
+                    })
                     .state('menu.usuario', {
                         cache: false,
                         url: '/usuario',

@@ -73,7 +73,7 @@
             </div>
             
             <!--  Insunina Prandial   *********************** -->
-            <div class="card" ng-if="cambio_inicio == 'insulina_basal_plus'">
+            <div class="card" ng-if="cambio_inicio == 'insulina_basal_plus' || cambio_inicio == 'insulina_bolo_basal'">
                 <div class="item item-divider" style="text-align: center;">
 
                     Seleccione una insulina prandial
@@ -88,6 +88,20 @@
                            name="insulina_prandial">
                     {{ item.text}}
                 </ion-radio>
+
+            </div>
+            
+            <div class="card" ng-if="cambio_inicio == 'insulina_basal_plus' || cambio_inicio == 'insulina_bolo_basal'">
+
+                <div class="item item-divider" >
+                    Tipos de insulinas rápidas
+                </div>
+                <div class="item item-text-wrap" >
+                    Utilizar preferentemente análogo ultrarrápido (insulina aspart de acción rápida), por su mayor eficacia y flexibilidad de manejo.<br><br>
+                    1.ª OPCIÓN: insulina aspart de acción rápida (FIASP<sup>&reg;</sup> 100 UI/ml).  Se administra desde 2 minutos antes de empezar a comer, con la posibilidad de administrarse hasta 20 minutos después del inicio de la comida.
+                    <br><br>
+                    2.ª OPCIÓN: aspart (NovoRapid<sup>&reg;</sup> 100 UI/ml), lispro (Humalog<sup>&reg;</sup> 100 o 200 UI/ml), glulisina (Apidra<sup>&reg;</sup> 100 UI/ml). Administrar 5-15 minutos antes del inicio de la comida.
+                </div>
 
             </div>
 

@@ -27,7 +27,7 @@
                     <b ng-if="insulina_basal == 'GLARGINA_U300'">GLARGINA U300</b>
                     <b ng-if="insulina_basal == 'GLARGINA_U100'">GLARGINA U100</b>
 
-                    <span ng-if="cambio_inicio == 'insulina_basal_plus'"><br>
+                    <span ng-if="cambio_inicio == 'insulina_basal_plus' || cambio_inicio == 'insulina_bolo_basal'"><br>
                         Insulina prandial: 
                         <b ng-if="insulina_prandial == 'prandial_1'">Insulina aspart de acción rápida (FIASP<sup>&reg;</sup>)</b>
                         <b ng-if="insulina_prandial == 'prandial_2'">Aspart, lispro, glulisina</b>
@@ -45,7 +45,7 @@
                     Resultado final
                 </div>
 
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_30-70' ">
+                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_30-70'">
                     - Insulina basal: {{((resultado_basal_30_70 * 80) / 100).toFixed(0)}} UI<br>
                     <!-- - Insulina prandial: {{resultado_prandial_30_70}} UI-->
                     <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 25px; margin-top: -10px;">
@@ -55,7 +55,7 @@
                         - {{((resultado_prandial_30_70 * 40) / 100).toFixed(0)}} (40%) cena
                     </div>
                 </div>
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_25-75' ">
+                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_25-75'">
                     - Insulina basal: {{((resultado_basal_25_75 * 80) / 100).toFixed(0)}} UI<br>
                     <!-- - Insulina prandial: {{resultado_prandial_25_75}} UI -->
                     <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 25px; margin-top: -10px;">
@@ -65,7 +65,7 @@
                         - {{((resultado_prandial_25_75 * 40) / 100).toFixed(0)}} (40%) cena
                     </div>
                 </div>
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_50-50' ">
+                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_50-50'">
                     - Insulina basal: {{((resultado_basal_50_50 * 80) / 100).toFixed(0)}} UI<br>
                     <!-- - Insulina prandial: {{resultado_prandial_50_50}} UI -->
                     <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 25px; margin-top: -10px;">
@@ -77,12 +77,13 @@
                 </div>
 
                 <div class="item item-text-wrap" ng-if="cambio_inicio == 'insulina_basal_plus'">
-                    - 4 UI en la comida con peor control posprandial
+                    - 4 UI prandial en la comida con peor glucemia postprandial.
                 </div>
 
 
 
             </div>
+
 
 
 
