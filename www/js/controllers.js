@@ -1036,43 +1036,43 @@ angular.module('app.controllers', [])
                     var glucemia_1_numero = parseFloat(glucemia_1);
                     if (glucemia_premezcla === 'Preprandial') {
                         if (glucemia_1_numero < '90') {
-                            $scope.ajuste_dosis_premezcla = '-2 UI';
+                            $scope.ajuste_dosis_premezcla = 'Quitar 2 UI';
                         }
                         if (glucemia_1_numero >= '90' && glucemia_1_numero <= '129') {
                             $scope.ajuste_dosis_premezcla = 'Misma dosis';
                         }
                         if (glucemia_1_numero >= '130' && glucemia_1_numero <= '139') {
-                            $scope.ajuste_dosis_premezcla = '+1 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 1 UI';
                         }
                         if (glucemia_1_numero >= '140' && glucemia_1_numero <= '159') {
-                            $scope.ajuste_dosis_premezcla = '+2 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 2 UI';
                         }
                         if (glucemia_1_numero >= '160' && glucemia_1_numero <= '179') {
-                            $scope.ajuste_dosis_premezcla = '+3 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 3 UI';
                         }
                         if (glucemia_1_numero >= '180' && glucemia_1_numero <= '250') {
-                            $scope.ajuste_dosis_premezcla = '+4 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 4 UI';
                         }
                     }
 
                     if (glucemia_premezcla === 'Posprandial') {
                         if (glucemia_1_numero < '100') {
-                            $scope.ajuste_dosis_premezcla = '-2 UI';
+                            $scope.ajuste_dosis_premezcla = 'Quitar 2 UI';
                         }
                         if (glucemia_1_numero >= '100' && glucemia_1_numero <= '179') {
                             $scope.ajuste_dosis_premezcla = 'Misma dosis';
                         }
                         if (glucemia_1_numero >= '180' && glucemia_1_numero <= '219') {
-                            $scope.ajuste_dosis_premezcla = '+2 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 2 UI';
                         }
                         if (glucemia_1_numero >= '220' && glucemia_1_numero <= '259') {
-                            $scope.ajuste_dosis_premezcla = '+3 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 3 UI';
                         }
                         if (glucemia_1_numero >= '260' && glucemia_1_numero <= '299') {
-                            $scope.ajuste_dosis_premezcla = '+4 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 4 UI';
                         }
                         if (glucemia_1_numero >= '300') {
-                            $scope.ajuste_dosis_premezcla = '+7 UI';
+                            $scope.ajuste_dosis_premezcla = 'Añadir 7 UI';
                         }
                     }
 
