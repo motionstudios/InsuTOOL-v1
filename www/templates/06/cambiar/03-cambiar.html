@@ -11,7 +11,8 @@
 
 
             <div class="spacer" style="width: 300px; height: 0px;"></div>
-
+            
+            <!--
             <div class="card" >
                 <div class="item item-divider" style="text-align: center">
                     Datos de cálculo
@@ -20,8 +21,7 @@
                 <div class="item item-text-wrap">
 
                     Tipo de insulina: <b>{{premezcla_cambio_final}}</b><br>
-                    Cantidad de insulina: <b>{{unidades_cambio}} UI</b><br>
-                    Tipo de premezcla: <b>{{premezcla_tipo_final_2}}</b><br>
+                    Cantidad de insulina: <b>{{premezcla_resultado_total}} UI</b><br>
                     Insulina basal: 
                     <b ng-if="insulina_basal == 'DEGLUDEC'">DEGLUDEC</b>
                     <b ng-if="insulina_basal == 'GLARGINA_U300'">GLARGINA U300</b>
@@ -37,6 +37,7 @@
                 </div>
 
             </div>
+            -->
 
 
             <div class="card resultado" >
@@ -44,40 +45,34 @@
                 <div class="item item-divider" style="text-align: center">
                     Resultado final
                 </div>
-
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_30-70'">
-                    - Insulina basal: {{((resultado_basal_30_70 * 80) / 100).toFixed(0)}} UI<br>
-                    <!-- - Insulina prandial: {{resultado_prandial_30_70}} UI-->
-                    <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 25px; margin-top: -10px;">
-                        <br>Repartir insulina prandial:<br>
-                        - {{((resultado_prandial_30_70 * 20) / 100).toFixed(0)}} (20%) desayuno<br>
-                        - {{((resultado_prandial_30_70 * 40) / 100).toFixed(0)}} (40%) comida<br>
-                        - {{((resultado_prandial_30_70 * 40) / 100).toFixed(0)}} (40%) cena
-                    </div>
-                </div>
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_25-75'">
-                    - Insulina basal: {{((resultado_basal_25_75 * 80) / 100).toFixed(0)}} UI<br>
+                
+                <div class="item item-text-wrap" >
+                    - Insulina basal
+                    <b ng-if="insulina_basal == 'DEGLUDEC'"> DEGLUDEC</b>
+                    <b ng-if="insulina_basal == 'GLARGINA_U300'"> GLARGINA U300</b>
+                    <b ng-if="insulina_basal == 'GLARGINA_U100'"> GLARGINA U100</b>:
+                    
+                    {{(((resultado_basal_25_75 + resultado_basal_30_70 + resultado_basal_50_50) * 80) / 100).toFixed(0)}} UI<br>
+                    
                     <!-- - Insulina prandial: {{resultado_prandial_25_75}} UI -->
-                    <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 25px; margin-top: -10px;">
-                        <br>Repartir insulina prandial:<br>
-                        - {{((resultado_prandial_25_75 * 20) / 100).toFixed(0)}} (20%) desayuno<br>
-                        - {{((resultado_prandial_25_75 * 40) / 100).toFixed(0)}} (40%) comida<br>
-                        - {{((resultado_prandial_25_75 * 40) / 100).toFixed(0)}} (40%) cena
+                    <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 0px; margin-top: -10px;">
+                        <br>- Repartir prandial 
+                        <b ng-if="insulina_prandial == 'prandial_1'">Insulina aspart de acción rápida (FIASP<sup>&reg;</sup>)</b>
+                        <b ng-if="insulina_prandial == 'prandial_2'">Aspart, lispro, glulisina </b><br>
+                        <div style="margin-left: 20px;">
+                        - {{(((resultado_prandial_25_75 + resultado_prandial_30_70 + resultado_prandial_50_50)  * 20) / 100).toFixed(0)}} (20%) desayuno<br>
+                        - {{(((resultado_prandial_25_75 + resultado_prandial_30_70 + resultado_prandial_50_50) * 40) / 100).toFixed(0)}} (40%) comida<br>
+                        - {{(((resultado_prandial_25_75 + resultado_prandial_30_70 + resultado_prandial_50_50) * 40) / 100).toFixed(0)}} (40%) cena
+                        </div>
                     </div>
                 </div>
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_50-50'">
-                    - Insulina basal: {{((resultado_basal_50_50 * 80) / 100).toFixed(0)}} UI<br>
-                    <!-- - Insulina prandial: {{resultado_prandial_50_50}} UI -->
-                    <div ng-if="cambio_inicio == 'insulina_bolo_basal'" style="margin-left: 25px; margin-top: -10px;">
-                        <br>Repartir insulina prandial:<br>
-                        - {{((resultado_prandial_50_50 * 20) / 100).toFixed(0)}} (20%) desayuno<br>
-                        - {{((resultado_prandial_50_50 * 40) / 100).toFixed(0)}} (40%) comida<br>
-                        - {{((resultado_prandial_50_50 * 40) / 100).toFixed(0)}} (40%) cena
-                    </div>
-                </div>
+               
 
                 <div class="item item-text-wrap" ng-if="cambio_inicio == 'insulina_basal_plus'">
-                    - 4 UI prandial en la comida con peor glucemia postprandial.
+                    - 4 UI prandial 
+                    <b ng-if="insulina_prandial == 'prandial_1'">Insulina aspart de acción rápida (FIASP<sup>&reg;</sup>) </b>
+                    <b ng-if="insulina_prandial == 'prandial_2'">Aspart, lispro, glulisina </b>
+                    en la comida con peor glucemia postprandial.
                 </div>
 
 

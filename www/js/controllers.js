@@ -1148,8 +1148,17 @@ angular.module('app.controllers', [])
                 $scope.data14 = {
                     Pinchazos_1_2: val14
                 };
+                
+                
                 $scope.unidades_cambio = storage.getItem('unidades_cambio');
+                $scope.unidades_cambio_25_75 = storage.getItem('unidades_cambio_25_75');
+                $scope.unidades_cambio_30_70 = storage.getItem('unidades_cambio_30_70');
+                $scope.unidades_cambio_50_50 = storage.getItem('unidades_cambio_50_50');
                 // listado de tipo de premezcla en cambio
+                $scope.premezcla_30_70 = $scope.$eval(storage.getItem('premezcla_30_70'));
+                $scope.premezcla_25_75 = $scope.$eval(storage.getItem('premezcla_25_75'));
+                $scope.premezcla_50_50 = $scope.$eval(storage.getItem('premezcla_50_50'));
+                
                 $scope.premezcla_tipo_2 = storage.getItem('premezcla_tipo_2');
                 var premezcla_tipo_2 = storage.getItem('premezcla_tipo_2');
                 $scope.premezcla_tipo_2List = [
@@ -1162,7 +1171,9 @@ angular.module('app.controllers', [])
                     premezcla_tipo_2List_1: premezcla_tipo_2
                 };
                 // resultados premezcla cambio
+                
                 var cambio_inicio = storage.getItem('cambio_inicio');
+                
                 var premezcla_tipo_2 = storage.getItem('premezcla_tipo_2');
                 if (cambio_inicio === 'insulina_basal') {
                     $scope.premezcla_cambio_final = 'Insulina basal';
@@ -1183,6 +1194,7 @@ angular.module('app.controllers', [])
                 if (premezcla_tipo_2 === 'premezcla_50-50') {
                     $scope.premezcla_tipo_final_2 = 'Premezcla 50-50';
                 }
+                
 
                 // 06/cambiar/02-cambiar.html
                 // crear RADIO listado insulinas
@@ -1199,12 +1211,19 @@ angular.module('app.controllers', [])
                     Insulina_basalList_1: val16
                 };
                 var premezcla_tipo_final_2 = storage.getItem('unidades_cambio');
-                $scope.resultado_basal_30_70 = parseFloat(premezcla_tipo_final_2) * 70 / 100;
-                $scope.resultado_prandial_30_70 = parseFloat(premezcla_tipo_final_2) * 30 / 100;
-                $scope.resultado_basal_25_75 = parseFloat(premezcla_tipo_final_2) * 75 / 100;
-                $scope.resultado_prandial_25_75 = parseFloat(premezcla_tipo_final_2) * 25 / 100;
-                $scope.resultado_basal_50_50 = parseFloat(premezcla_tipo_final_2) * 50 / 100;
-                $scope.resultado_prandial_50_50 = parseFloat(premezcla_tipo_final_2) * 50 / 100;
+                var premezcla_tipo_final_25_75 = storage.getItem('unidades_cambio_25_75');
+                var premezcla_tipo_final_30_70 = storage.getItem('unidades_cambio_30_70');
+                var premezcla_tipo_final_50_50 = storage.getItem('unidades_cambio_50_50');
+                
+                $scope.premezcla_resultado_total = parseFloat(premezcla_tipo_final_30_70) + parseFloat(premezcla_tipo_final_25_75) + parseFloat(premezcla_tipo_final_50_50);
+                
+                
+                $scope.resultado_basal_30_70 = parseFloat(premezcla_tipo_final_30_70) * 70 / 100;
+                $scope.resultado_prandial_30_70 = parseFloat(premezcla_tipo_final_30_70) * 30 / 100;
+                $scope.resultado_basal_25_75 = parseFloat(premezcla_tipo_final_25_75) * 75 / 100;
+                $scope.resultado_prandial_25_75 = parseFloat(premezcla_tipo_final_25_75) * 25 / 100;
+                $scope.resultado_basal_50_50 = parseFloat(premezcla_tipo_final_50_50) * 50 / 100;
+                $scope.resultado_prandial_50_50 = parseFloat(premezcla_tipo_final_50_50) * 50 / 100;
                 // crear RADIO listado insulinas prandial
                 $scope.insulina_prandial = storage.getItem('insulina_prandial');
                 var val17 = storage.getItem('insulina_prandial');
@@ -1681,7 +1700,26 @@ angular.module('app.controllers', [])
                     storage.setItem('cambio_inicio', $scope.data13.cambio_inicioList_1);
                     storage.setItem('pinchazos_2', $scope.data14.Pinchazos_1_2);
                     storage.setItem('unidades_cambio', $scope.unidades_cambio);
+                    storage.setItem('unidades_cambio_25_75', $scope.unidades_cambio_25_75);
+                    storage.setItem('unidades_cambio_30_70', $scope.unidades_cambio_30_70);
+                    storage.setItem('unidades_cambio_50_50', $scope.unidades_cambio_50_50);
+
                     storage.setItem('premezcla_tipo_2', $scope.data15.premezcla_tipo_2List_1);
+                    storage.setItem('premezcla_25_75', $scope.premezcla_25_75);
+                    storage.setItem('premezcla_30_70', $scope.premezcla_30_70);
+                    storage.setItem('premezcla_50_50', $scope.premezcla_50_50);
+                    if ($scope.premezcla_25_75 !== true) {
+                        storage.setItem('unidades_cambio_25_75', '0');
+                        $scope.unidades_cambio_25_75 = 0;
+                    }
+                    if ($scope.premezcla_30_70 !== true) {
+                        storage.setItem('unidades_cambio_30_70', '0');
+                        $scope.unidades_cambio_30_70 = 0;
+                    }
+                    if ($scope.premezcla_50_50 !== true) {
+                        storage.setItem('unidades_cambio_50_50', '0');
+                        $scope.unidades_cambio_50_50 = 0;
+                    }
                     //06/cambiar/02-cambiar.html
                     storage.setItem('insulina_basal', $scope.data16.Insulina_basalList_1);
                     storage.setItem('insulina_prandial', $scope.data17.Insulina_prandialList_1);

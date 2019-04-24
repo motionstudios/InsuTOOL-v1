@@ -18,13 +18,17 @@
                     Datos de cálculo
                 </div>
 
-                <div class="item item-text-wrap">
-
-                    
-                    Tipo de premezcla: <b>{{premezcla_tipo_final_2}}</b><br>
-                    Cantidad de insulina: <b>{{unidades_cambio}} UI</b><br>
-                
-
+                <div class="item item-text-wrap" ng-show="premezcla_25_75 === true">              
+                    <b>Premezcla 25-75</b><br> 
+                    Cantidad de insulina: <b>{{unidades_cambio_25_75}} UI</b><br>
+                </div>
+                <div class="item item-text-wrap" ng-show="premezcla_30_70 === true">              
+                    <b>Premezcla 30-70</b><br> 
+                    Cantidad de insulina: <b>{{unidades_cambio_30_70}} UI</b><br>
+                </div>
+                <div class="item item-text-wrap" ng-show="premezcla_50_50 === true">              
+                    <b>Premezcla 50-50</b><br> 
+                    Cantidad de insulina: <b>{{unidades_cambio_50_50}} UI</b><br>
                 </div>
 
             </div>
@@ -34,18 +38,21 @@
                 <div class="item item-divider" style="text-align: center">
                     Resultado inicial
                 </div>
-
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_30-70'">
-                    - Insulina basal: {{(resultado_basal_30_70).toFixed(0)}} UI<br>
-                    - Insulina prandial: {{(resultado_prandial_30_70).toFixed(0)}} UI
-                </div>
-
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_25-75'">
+                
+                <div class="item item-text-wrap" ng-if="premezcla_25_75 === true">
+                    Premezcla 25-75:<br>
                     - Insulina basal: {{(resultado_basal_25_75).toFixed(0)}} UI<br>
                     - Insulina prandial: {{(resultado_prandial_25_75).toFixed(0)}} UI
                 </div>
 
-                <div class="item item-text-wrap" ng-if="premezcla_tipo_2 === 'premezcla_50-50'">
+                <div class="item item-text-wrap" ng-if="premezcla_30_70 === true">
+                    Premezcla 30-70:<br>
+                    - Insulina basal: {{(resultado_basal_30_70).toFixed(0)}} UI<br>
+                    - Insulina prandial: {{(resultado_prandial_30_70).toFixed(0)}} UI
+                </div>
+
+                <div class="item item-text-wrap" ng-if="premezcla_50_50 === true">
+                    Premezcla 50-50:<br>
                     - Insulina basal: {{(resultado_basal_50_50).toFixed(0)}} UI<br>
                     - Insulina prandial: {{(resultado_prandial_50_50).toFixed(0)}} UI
                 </div>
@@ -88,6 +95,23 @@
                            name="insulina_prandial">
                     {{ item.text}}
                 </ion-radio>
+
+            </div>
+            
+            <div class="card">
+
+                <div class="item item-divider item-icon-left">
+                    <i class="icon ion-ios-help-outline"></i> Descripción insulinas basales
+                </div>
+                <div class="item item-text-wrap">
+                    <h4>
+                        <b>Glargina U100 (<i>Lantus</i><sup>&reg;</sup>):</b> análogo de insulina de acción prolongada. Sin pico de acción. Duración de acción 20–24 horas.<br><br>
+                        <b>Glargina biosimilar U100 (<i>Abasaglar</i><sup>&reg;</sup>):</b> biosimilar análogo de insulina glargina U100. Sin pico de acción. Duración de acción 20 – 24 horas.<br><br>
+                        <b>Glargina U300 (<i>Toujeo</i><sup>&reg;</sup>):</b> análogo de insulina de acción prolongada. Sin pico de acción. Duración de acción 24-36 horas. Flexibilidad de administración de 3 horas antes o después de su hora habitual.<br><br>
+                        <b>Degludec (<i>Tresiba</i><sup>&reg;</sup>):</b> análogo de insulina de acción prolongada. Sin pico de acción. Duración de acción superior a 40 horas. Flexibilidad de administración de 8 a 40 horas respecto dosis anterior.<br><br>
+                    </h4>
+
+                </div>
 
             </div>
             
